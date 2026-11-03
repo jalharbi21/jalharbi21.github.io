@@ -1,0 +1,75 @@
+:root {
+  --bg: #05070b;
+  --panel: rgba(18, 24, 33, .72);
+  --line: rgba(233, 238, 245, .12);
+  --text: #e9eef5;
+  --muted: #9aa6b5;
+  --amber: #ffb23f;
+  --ember: #ff7a1a;
+  --violet: #8c7bff;
+  --green: #6cffb4;
+  --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+  --sans: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 var(--sans);
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(255, 122, 26, .10), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(140, 123, 255, .08), transparent 60%),
+    linear-gradient(rgba(233, 238, 245, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 238, 245, .025) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px;
+  min-height: 100vh;
+}
+a { color: var(--amber); text-decoration: none; border-bottom: 1px solid rgba(255, 178, 63, .35); }
+a:hover { border-bottom-color: var(--amber); }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+header.top { border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.mark { display: flex; align-items: center; gap: 12px; font: 600 15px var(--mono); letter-spacing: .32em; color: var(--text); border: 0; }
+.mark svg { flex: none; }
+nav a { font: 13px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border: 0; margin-left: 20px; }
+nav a:hover, nav a[aria-current] { color: var(--amber); }
+.hero { padding: 88px 0 56px; }
+.eyebrow { font: 12px var(--mono); letter-spacing: .3em; text-transform: uppercase; color: var(--amber); }
+h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 14px 0 18px; letter-spacing: -.01em; }
+h1 .dim { color: var(--muted); }
+.lede { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 8px 0 72px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line); padding: 22px 22px 20px; position: relative;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+.card::before { content: ""; position: absolute; left: 0; top: 0; width: 28px; height: 2px; background: var(--amber); }
+.card h3 { margin: 0 0 6px; font-size: 17px; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.tag { font: 11px var(--mono); letter-spacing: .2em; color: var(--green); text-transform: uppercase; }
+section h2 { font-size: 24px; margin: 0 0 12px; }
+.doc { padding: 56px 20px 80px; max-width: 760px; }
+.doc h1 { font-size: clamp(30px, 5vw, 42px); }
+.doc h2 { font-size: 20px; margin: 40px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+.doc p, .doc li { color: #cfd7e2; }
+.doc ul { padding-left: 22px; }
+.doc li { margin: 6px 0; }
+.doc code { font: 14px var(--mono); color: var(--amber); background: rgba(255, 178, 63, .08); padding: 1px 6px; }
+.meta { font: 13px var(--mono); color: var(--muted); letter-spacing: .06em; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font: 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+td code { white-space: nowrap; }
+.note { border-left: 2px solid var(--violet); background: rgba(140, 123, 255, .07); padding: 12px 16px; margin: 16px 0; }
+footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+footer a { color: var(--muted); border: 0; }
+footer a:hover { color: var(--amber); }
+@media (max-width: 560px) {
+  header.top .wrap { height: auto; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; }
+  nav a { margin: 0 16px 0 0; }
+  .hero { padding: 56px 0 40px; }
+  table, thead, tbody, tr, th, td { display: block; }
+  thead { display: none; }
+  td { border: 0; padding: 4px 0; }
+  tr { border-bottom: 1px solid var(--line); padding: 10px 0; }
+}
